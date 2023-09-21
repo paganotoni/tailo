@@ -5,7 +5,6 @@ package tailo
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 
@@ -22,38 +21,6 @@ func (e extensions) Has(ext string) bool {
 	}
 
 	return false
-}
-
-func Watch() {
-	Build()
-
-	watcher, err := buildWatcher()
-	if err != nil {
-		panic(err)
-	}
-
-	// Start listening for events.
-	go func() {
-		for {
-			select {
-			case event, ok := <-watcher.Events:
-				if !ok {
-					return
-				}
-
-				if event.Has(fsnotify.Write) {
-					Build()
-				}
-			case err, ok := <-watcher.Errors:
-				if !ok {
-					return
-				}
-				log.Println("error:", err)
-			}
-		}
-	}()
-
-	<-make(chan struct{})
 }
 
 // Extensions to watch for changes.
