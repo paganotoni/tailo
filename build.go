@@ -9,7 +9,7 @@ import (
 // Build runs the Tailwind CSS CLI binary to build the
 // CSS file and generate compiled CSS it expects to find
 // the options in the config file.
-func Build(options ...option) {
+func Build(options ...Option) {
 	// Applying passed options
 	for _, option := range options {
 		option()

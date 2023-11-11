@@ -6,7 +6,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
-func Watch(options ...option) {
+func Watch(options ...Option) {
 	Build(options...)
 
 	watcher, err := buildWatcher()
