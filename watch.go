@@ -37,3 +37,11 @@ func Watch(options ...Option) {
 
 	<-make(chan struct{})
 }
+
+// WatcherFn returns a runner function based on the
+// given options.
+func WatcherFn(options ...Option) func() {
+	return func() {
+		Watch(options...)
+	}
+}
