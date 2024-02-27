@@ -52,6 +52,11 @@ func Setup() error {
 		return fmt.Errorf("Could not download Tailwind CSS CLI binary: %s", resp.Status)
 	}
 
+	err = os.MkdirAll("bin", 0755)
+	if err != nil {
+		return err
+	}
+
 	// Create the file
 	out, err := os.Create("bin/tailwindcss")
 	if err != nil {
@@ -59,11 +64,6 @@ func Setup() error {
 	}
 
 	defer out.Close()
-
-	err = os.MkdirAll("bin", 0755)
-	if err != nil {
-		return err
-	}
 
 	err = os.Chmod("bin/tailwindcss", 0755)
 	if err != nil {
