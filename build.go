@@ -10,6 +10,14 @@ import (
 // CSS file and generate compiled CSS it expects to find
 // the options in the config file.
 func Build(options ...Option) {
+	err := Setup()
+	if err != nil {
+		fmt.Println("Error running the setup:", err.Error())
+		os.Exit(1)
+
+		return
+	}
+
 	// Applying passed options
 	for _, option := range options {
 		option()
@@ -32,7 +40,7 @@ func Build(options ...Option) {
 
 	fmt.Println("[tailo] Running:", cmd.String())
 
-	err := cmd.Run()
+	err = cmd.Run()
 	if err != nil {
 		panic(err)
 	}
