@@ -23,6 +23,7 @@ func init() {
 func main() {
 	flag.Parse()
 
+	tailo.Setup()
 	tailo.Build(
 		tailo.UseInputPath(input),
 		tailo.UseOutputPath(output),
