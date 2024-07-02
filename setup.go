@@ -40,7 +40,7 @@ func Setup() error {
 	}
 
 	url := fmt.Sprintf("https://github.com/tailwindlabs/tailwindcss/releases/latest/download/%v", binary)
-	fmt.Println(url)
+	fmt.Println("Downloading from:", url)
 
 	resp, err := http.Get(url)
 	if err != nil {
