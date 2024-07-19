@@ -10,17 +10,16 @@ import (
 // CSS file and generate compiled CSS it expects to find
 // the options in the config file.
 func Build(options ...Option) {
-	err := Setup()
-	if err != nil {
+	// Applying passed options
+	for _, option := range options {
+		option()
+	}
+
+	if err := Setup(); err != nil {
 		fmt.Println("Error running the setup:", err.Error())
 		os.Exit(1)
 
 		return
-	}
-
-	// Applying passed options
-	for _, option := range options {
-		option()
 	}
 
 	if _, err := os.Stat(binaryPath); os.IsNotExist(err) {
@@ -40,8 +39,7 @@ func Build(options ...Option) {
 
 	fmt.Println("[tailo] Running:", cmd.String())
 
-	err = cmd.Run()
-	if err != nil {
-		panic(err)
+	if err := cmd.Run(); err != nil {
+		fmt.Println("[tailo] Error running tailwindcss:", err)
 	}
 }

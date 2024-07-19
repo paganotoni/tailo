@@ -47,3 +47,9 @@ func UseBinaryPath(path string) Option {
 		binaryPath = path
 	}
 }
+
+func UseVersion(v string) Option {
+	return func() {
+		version = v
+	}
+}
