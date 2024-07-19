@@ -16,5 +16,5 @@ go run github.com/paganotoni/tailo/cmd/setup@latest -version=v3.4.6
 Like the Setup command the Build Command allows to specify the version of Tailwind to be used.
 
 ```sh
-go run ./cmd/build -version=v3.4.6
+go run github.com/paganotoni/tailo/cmd/build@latest -version=v3.4.6
 ```
