@@ -1,4 +1,4 @@
-module github.com/paganotoni/tailo
+module go.antoniopagano.com/tailo
 
 go 1.23
 
