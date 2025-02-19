@@ -1,7 +1,5 @@
 module github.com/paganotoni/tailo
 
-go 1.21
+go 1.23
 
-require github.com/fsnotify/fsnotify v1.7.0
-
-require golang.org/x/sys v0.21.0 // indirect
+require github.com/spf13/pflag v1.0.6
