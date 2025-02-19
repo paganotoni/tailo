@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-// runs the binary with the given arguments
+// runs the Tailwind CSS binary with the given arguments
 func run(binary string, args []string) error {
 	cmd := exec.Command(binary, args...)
 	cmd.Stdin = os.Stdin
