@@ -17,6 +17,7 @@ import (
 // binary executable and places it in the bin/ directory.
 func download(binary, version string, musl bool) error {
 	if _, err := os.Stat(binary); err == nil {
+		fmt.Println("Removing", binary)
 		err := os.Remove(binary)
 		if err != nil {
 			return err
