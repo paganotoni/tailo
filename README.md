@@ -8,14 +8,17 @@ To download the Tailwind CSS binary, you can use the `download` command.
 // Downloading latest Tailwind CSS version
 go tool tailo download
 
-// Or  Using a specific version
+// Or specifying a version
+go tool tailo download -v v3.4.6 --musl
+
+// Or specifying a version and musl
 go tool tailo download -v v3.4.6 --musl
 
 // OR invoke via go run
 go run github.com/paganotoni/tailo/@latest download -v v3.4.6 --musl
 ```
 
-This will download the Tailwind CSS binary into `bin/tailwindcss`.
+This removes any file at `bin/tailwind` and download the Tailwind CSS binary into `bin/tailwindcss`
 
 ## Calling the Tailwind CSS binary
 
