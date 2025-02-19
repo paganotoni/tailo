@@ -16,6 +16,13 @@ import (
 // given operating system and architecture. It makes the
 // binary executable and places it in the bin/ directory.
 func download(binary, version string, musl bool) error {
+	if _, err := os.Stat(binary); err == nil {
+		err := os.Remove(binary)
+		if err != nil {
+			return err
+		}
+	}
+
 	// Build the URL for the binary
 	url, err := buildURL(runtime.GOOS, runtime.GOARCH, version, musl)
 	if err != nil {
